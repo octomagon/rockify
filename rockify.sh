@@ -61,6 +61,17 @@ echo "Done."
 
 echo "Syncing distro... "
 dnf distro-sync -y || { echo 'Failed to sync Rocky distro.' ; exit 1; }
+
+echo -ne "\nLooking for leftover CentOS packages... "
+CENTOS_RPMS=(`dnf list installed | grep "^centos" | sed 's/\..*//'`)
+echo "Done."
+
+if [ "${#CENTOS_RPMS[@]}" -ne "0" ]; then
+  echo "These CentOS packages are still installed: ${CENTOS_RPMS[@]}"
+else
+  echo "No leftovers found."
+fi
+
 echo -ne "\nNOTE: Out of an abundance of caution, only the minmal CentOS\n"
 echo -ne "packages have been replaced.  Some packages may still be installed.\n"
 echo -ne "Also, the old CentOS kernels will still show up in the grub menu.\n"

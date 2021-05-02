@@ -1,7 +1,3 @@
-```
- ___               
-|   \ ___ _ _ _ __ 
-| |) / -_) '_| '_ \
-|___/\___|_| | .__/
-             |_|   
-```
+## A script to convert CentOS 8 to Rocky Linux 8
+
+Do not use this.  It will delete your data and leak your passwords.
