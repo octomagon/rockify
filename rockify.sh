@@ -1,5 +1,6 @@
 #!/bin/bash
 #
+# /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/octomagon/rockify/main/rockify.sh)"
 
 # Bail if not root
 if [[ $EUID -ne 0 ]]; then echo "You must be root."; exit 1; fi
